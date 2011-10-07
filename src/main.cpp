@@ -7,13 +7,15 @@ using namespace std;
 
 #define WINDOW_WIDTH (500)
 #define WINDOW_HEIGHT (500)
+#define VIEWPORT_WIDTH (100)
+#define VIEWPORT_HEIGHT (100)
 
 ////////////////////////////////////////////////////////////////////////////////
 //  MAIN FUNCTION
 ////////////////////////////////////////////////////////////////////////////////
 static int window_id;
-Environment env;
 char title[] = "SPACE SHOOTER";
+Environment env(VIEWPORT_WIDTH, VIEWPORT_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT);
 
 void draw(void){
 	env.draw();	
@@ -49,7 +51,7 @@ int main(int argc, char **argv){
 	glutReshapeFunc(reshape);
 	glutIdleFunc(draw);
 	
-	env.initialize(WINDOW_WIDTH,WINDOW_HEIGHT);
+	env.initialize();
 	glutMainLoop();
 
 
