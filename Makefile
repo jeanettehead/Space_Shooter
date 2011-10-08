@@ -11,8 +11,11 @@ BDIR = bin
 
 all: main
 
-main: main.o environment.o
+main: dirs main.o environment.o
 	$(CC) $(LIBS) $(ODIR)/main.o $(ODIR)/environment.o -o $(BDIR)/$(EXEC_NAME)
+
+dirs:
+	mkdir -p $(ODIR) $(BDIR)
 
 main.o: $(SDIR)/main.cpp $(SDIR)/environment.cpp
 	$(CC) -c $(LIBS) $(CFLAGS) $(SDIR)/main.cpp -o $(ODIR)/main.o
